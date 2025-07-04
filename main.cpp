@@ -7,18 +7,12 @@ int main() {
         std::cin >> opcion;
     }
 
-    int dimensiones = 0;
-
-    if (opcion == 1) {
-        dimensiones = 6;
-    }
-    else if (opcion == 2) {
-        dimensiones = 10;
-    }
-    else {
+    if (opcion == 0) {
         std::cout << "Hasta luego! ^_^";
         return 0;
     }
+
+    int dimensiones = opcion == 1? 6:10;
 
     Tablero juego(dimensiones);
     int stop = 0;

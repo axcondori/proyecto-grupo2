@@ -58,7 +58,7 @@ void imprimir_horizontal(const std::vector<bool> &v_lineas) {
 void imprimir_vertical(const std::vector<bool> &v_lineas, const std::vector<char> &casillas) {
     for (int i = 0; i < v_lineas.size(); i++) {
         if (v_lineas[i]) {
-            std::cout << " |";
+            std::cout << "|";
         }
         else {
             std::cout << " ";
