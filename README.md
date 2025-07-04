@@ -9,6 +9,7 @@ Este es impreso en la consola al inicio de cada turno, y es llenado según el in
   
 Para crear el tablero, hemos implementado la clase `Tablero`, la cual tiene los siguientes atributos:  
 1. `dimensiones`: Un valor entero con las dimensiones del tablero (6 o 10).  
-2. `vec_tablero lineas_horizontal`: Un vector de vectores de booleanos, representando las lineas horizontales existentes en el tablero.  
-3. `vec_tablero lineas_vertical`: Un vector de vectores de booleanos, representando las lineas verticales existentes en el tablero.  
-4. `int casillas_llenas`: Un valor entero que contea cuantas casillas del tablero están ocupadas en total.  
+2. `lineas_horizontal`: Un vector de vectores de booleanos, representando las lineas horizontales existentes en el tablero.  
+3. `lineas_vertical`: Un vector de vectores de booleanos, representando las lineas verticales existentes en el tablero.
+4. `casillas`: Un vector de vectores de caracteres, representando los caracteres (' ', 'A' o 'B') existentes en el tablero.
+5. `casillas_llenas`: Un valor entero que contea cuantas casillas del tablero están ocupadas en total.  
