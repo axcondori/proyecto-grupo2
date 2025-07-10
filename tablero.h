@@ -37,4 +37,8 @@ vec_casillas crear_casillas(int n);
 // Impresión de tablero
 void imprimir_horizontal(const std::vector<int> &v_lineas);
 void imprimir_vertical(const std::vector<int> &v_lineas);
+
+// Sistema de turnos
+void cambiar_jugador(char &c);
+
 #endif //TABLERO_H

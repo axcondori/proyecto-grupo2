@@ -1,4 +1,5 @@
 #include "tablero.h"
+#include <cmath>
 
 int main() {
     int opcion = menu();
@@ -15,16 +16,38 @@ int main() {
     int dimensiones = opcion == 1? 6:10;
 
     Tablero juego(dimensiones);
-    int stop = 0;
+    char jugador = ' ';
+
+    int xi = 0;
+    int yi = 0;
+    int xf = 0;
+    int yf = 0;
+
+    int dx = 0;
+    int dy = 0;
 
     while (!juego.lleno()) {
         juego.imprimir_tablero();
-        std::cin >> stop; // esto es para que no imprima mil tableros por segundo XD
+        cambiar_jugador(jugador);
+        std::cout << "// Turno de jugador " << jugador << " //\n";
 
-        // TODO: Sistema de turnos (A / B)
-        // TODO: Input de linea a dibujar
-        // TODO: Verificación de movimiento a dibujar (NO DIAGONALES)
+        do {
+            std::cout << "Ingrese origen (x y): ";
+            std::cin >> xi >> yi;
+            std::cout << "Ingrese destino (x y): ";
+            std::cin >> xf >> yf;
+
+            dx = xf - xi;
+            dy = yf - yi;
+        }
+        while (!((abs(dx) == 1 && dy == 0) || (abs(dy) == 1 && dx == 0)));
+
         // TODO: Dibujar las lineas (vertical / horizontal)
+        // TODO: Hacerlo con un método de juego (despues de verificación esa)
+        // TODO: Conversion cuando movimiento es negativo (dx < 0 || dy < 0)
+        // TODO: Verificación de línea vacía (despues de conver. mov)
+
+        // TODO: vs. PC
     }
 
     return 1;

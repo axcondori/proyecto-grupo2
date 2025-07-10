@@ -82,3 +82,11 @@ void Tablero::imprimir_tablero() const {
     }
     imprimir_horizontal(lineas_horizontal[dimensiones-1]);
 }
+
+void cambiar_jugador(char &c) {
+    if (c == 'A') {
+        c = 'B';
+    } else {
+        c = 'A';
+    }
+}
