@@ -23,7 +23,7 @@ int menu() {
 void imprimir_horizontal(const std::vector<bool> &v_lineas) {
     std::cout << "+";
     for (const auto &linea : v_lineas) {
-        std::cout << (linea ? " - " : "   ") << "+";
+        std::cout << (linea ? "---" : "   ") << "+";
     }
     std::cout << "\n";
 }
