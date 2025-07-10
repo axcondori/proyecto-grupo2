@@ -17,6 +17,14 @@ Para crear el tablero, hemos implementado la clase `Tablero`, la cual tiene los 
 **Administrador de código fuente:** `CMake versión 3.10` o superior  
 **Sistema Operativo:** `MS Windows, OS Mac o Linux`
 
+## Consideraciones del proyecto
+1. El juego cuenta con un meno y un tablero.
+2. El juego se realiza entre dos jugadores externos (opcionalmente entre un jugador vs la computadora).
+3. Tiene tiempos de respuesta
+4. Un valor entero con las dimensiones del tablero (6 o 10).  
+
+**Compilador de C++:** `Versión C++ 17` o superior  
+
 ## Guía de instalación
 
 ## Instrucciones o reglas de uso
@@ -45,3 +53,4 @@ Yadhira Mayza Lariena Vasquez
 Yelsie Sasha Pintado Perea
 
 ## Bibliografía
+1] Wikipedia, “Dots and boxes.” https://en.wikipedia.org/wiki/Dots and Boxes, 2022.
