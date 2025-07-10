@@ -41,4 +41,7 @@ void imprimir_vertical(const std::vector<int> &v_lineas);
 // Sistema de turnos
 void cambiar_jugador(char &c);
 
+bool verificar_punto(int x, int y);
+void intercambio(int &x, int&y);
+
 #endif //TABLERO_H

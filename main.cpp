@@ -1,5 +1,4 @@
 #include "tablero.h"
-#include <cmath>
 
 int main() {
     int opcion = menu();
@@ -25,11 +24,13 @@ int main() {
 
     int dx = 0;
     int dy = 0;
+    bool mov_real = false;
+    bool punto_real = false;
 
     while (!juego.lleno()) {
         juego.imprimir_tablero();
         cambiar_jugador(jugador);
-        std::cout << "// Turno de jugador " << jugador << " //\n";
+        std::cout << "\n// Turno de jugador " << jugador << " //\n";
 
         do {
             std::cout << "Ingrese origen (x y): ";
@@ -37,15 +38,23 @@ int main() {
             std::cout << "Ingrese destino (x y): ";
             std::cin >> xf >> yf;
 
+            if (xf - xi == -1 || yf - yi == -1) {
+                intercambio(xi, xf);
+                intercambio(yi, yf);
+            }
+
             dx = xf - xi;
             dy = yf - yi;
-        }
-        while (!((abs(dx) == 1 && dy == 0) || (abs(dy) == 1 && dx == 0)));
 
+            mov_real = ((dx == 1 && dy == 0) || (dy == 1 && dx == 0));
+            punto_real = verificar_punto(xi, yi) && verificar_punto(xf, yf);
+        }
+        while (!(mov_real && punto_real));
+
+        // TODO: AÑADIR NUMEROS EN PARTE VERTICAL IZQUIERDA DEL TABLERO
         // TODO: Dibujar las lineas (vertical / horizontal)
         // TODO: Hacerlo con un método de juego (despues de verificación esa)
-        // TODO: Conversion cuando movimiento es negativo (dx < 0 || dy < 0)
-        // TODO: Verificación de línea vacía (despues de conver. mov)
+        // TODO: Verificación de línea disponible
 
         // TODO: vs. PC
     }

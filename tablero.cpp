@@ -90,3 +90,18 @@ void cambiar_jugador(char &c) {
         c = 'A';
     }
 }
+
+bool verificar_punto(int x, int y) {
+    if (x < 0 || x > 6) {
+        return false;
+    } else if (y < 1 || y > 6) {
+        return false;
+    }
+    return true;
+}
+
+void intercambio(int &x, int &y) {
+    const int temp = x;
+    x = y;
+    y = temp;
+}
