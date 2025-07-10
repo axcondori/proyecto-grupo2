@@ -18,7 +18,7 @@ Para crear el tablero, hemos implementado la clase `Tablero`, la cual tiene los 
 **Sistema Operativo:** `MS Windows, OS Mac o Linux`
 
 ## Consideraciones del proyecto
-1. El juego cuenta con un meno y un tablero.
+1. El juego cuenta con un menú y un tablero.
 2. El juego se realiza entre dos jugadores externos (opcionalmente entre un jugador vs la computadora).
 3. Tiene tiempos de respuesta
 4. Un valor entero con las dimensiones del tablero (6 o 10).  
