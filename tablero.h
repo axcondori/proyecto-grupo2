@@ -31,8 +31,6 @@ public:
 
 // Creación de tablero
 int menu();
-vec_tablero crear_lineas(int n, int a);
-vec_casillas crear_casillas(int n);
 
 // Impresión de tablero
 void imprimir_horizontal(const std::vector<int> &v_lineas);

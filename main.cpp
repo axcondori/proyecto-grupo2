@@ -30,7 +30,7 @@ int main() {
     while (!juego.lleno()) {
         juego.imprimir_tablero();
         cambiar_jugador(jugador);
-        std::cout << "\n// Turno de jugador " << jugador << " //\n";
+        std::cout << "\n// Turno del jugador " << jugador << " //\n";
 
         do {
             std::cout << "Ingrese origen (x y): ";
@@ -51,7 +51,6 @@ int main() {
         }
         while (!(mov_real && punto_real));
 
-        // TODO: AÑADIR NUMEROS EN PARTE VERTICAL IZQUIERDA DEL TABLERO
         // TODO: Dibujar las lineas (vertical / horizontal)
         // TODO: Hacerlo con un método de juego (despues de verificación esa)
         // TODO: Verificación de línea disponible

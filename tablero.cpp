@@ -6,9 +6,9 @@
 
 Tablero::Tablero(int n) {
     dimensiones = n;
-    lineas_horizontal = crear_lineas(n, n-1);
-    lineas_vertical = crear_lineas(n-1, n);
-    casillas = crear_casillas(n-1);
+    lineas_horizontal = vec_tablero(n, std::vector<bool>(n-1));
+    lineas_vertical = vec_tablero(n-1, std::vector<bool>(n));
+    casillas = vec_casillas(n, std::vector<char>(n, ' '));
 }
 
 int menu() {
@@ -18,26 +18,6 @@ int menu() {
                  "0. Salir\nSeleccione una opcion:";
     std::cin >> opcion;
     return opcion;
-}
-
-vec_tablero crear_lineas(int n, int a) {
-    vec_tablero lineas;
-    std::vector<bool> casillas(a);
-
-    for (int i = 0; i < n; i++) {
-        lineas.emplace_back(casillas);
-    }
-    return lineas;
-}
-
-vec_casillas crear_casillas(int n) {
-    vec_casillas lineas;
-    std::vector<char> casillas(n, ' ');
-
-    for (int i = 0; i < n; i++) {
-        lineas.emplace_back(casillas);
-    }
-    return lineas;
 }
 
 void imprimir_horizontal(const std::vector<bool> &v_lineas) {
@@ -72,14 +52,25 @@ void imprimir_vertical(const std::vector<bool> &v_lineas, const std::vector<char
 }
 
 void Tablero::imprimir_tablero() const {
+    std::cout << "   ";
     for (int i = 0; i < dimensiones; i++) {
         std::cout << i+1 << "   ";
     }
     std::cout << "\n";
     for (int i = 0; i < dimensiones-1; i++) {
+        std::cout << i + 1;
+        if (i < 10) {
+            std::cout << " ";
+        }
+        std::cout << " ";
         imprimir_horizontal(lineas_horizontal[i]);
+        if (i < 10) {
+            std::cout << " ";
+        }
+        std::cout << "  ";
         imprimir_vertical(lineas_vertical[i], casillas[i]);
     }
+    std::cout << dimensiones << " ";
     imprimir_horizontal(lineas_horizontal[dimensiones-1]);
 }
 
