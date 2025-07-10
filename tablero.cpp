@@ -21,30 +21,17 @@ int menu() {
 }
 
 void imprimir_horizontal(const std::vector<bool> &v_lineas) {
-    std::cout << "+ ";
-    for (const auto &linea:v_lineas) {
-        if (linea) {
-            std::cout << "-";
-        }
-        else {
-            std::cout << " ";
-        }
-
-        std::cout << " + ";
+    std::cout << "+";
+    for (const auto &linea : v_lineas) {
+        std::cout << (linea ? " - " : "   ") << "+";
     }
     std::cout << "\n";
 }
 
 void imprimir_vertical(const std::vector<bool> &v_lineas, const std::vector<char> &casillas) {
     for (int i = 0; i < v_lineas.size(); i++) {
-        if (v_lineas[i]) {
-            std::cout << "|";
-        }
-        else {
-            std::cout << " ";
-        }
-
-        if (i != v_lineas.size() - 1) {
+        std::cout << (v_lineas[i] ? "|" : " ");
+        if (i < casillas.size()) {
             std::cout << " " << casillas[i] << " ";
         }
     }
@@ -52,26 +39,27 @@ void imprimir_vertical(const std::vector<bool> &v_lineas, const std::vector<char
 }
 
 void Tablero::imprimir_tablero() const {
-    std::cout << "   ";
+    // Encabezado de columnas
+    std::cout << " ";
     for (int i = 0; i < dimensiones; i++) {
-        std::cout << i+1 << "   ";
+        std::cout << "  " << i+1 << " ";
     }
     std::cout << "\n";
-    for (int i = 0; i < dimensiones-1; i++) {
-        std::cout << i + 1;
-        if (i < 10) {
-            std::cout << " ";
-        }
+
+    for (int i = 0; i < dimensiones; i++) {
+        // Número de fila con alineación fija
+        std::cout << std::setw(2) << i+1;
+
+        // Línea horizontal
         std::cout << " ";
         imprimir_horizontal(lineas_horizontal[i]);
-        if (i < 10) {
-            std::cout << " ";
+
+        // Línea vertical (excepto última fila)
+        if (i < dimensiones - 1) {
+            std::cout << "   ";
+            imprimir_vertical(lineas_vertical[i], casillas[i]);
         }
-        std::cout << "  ";
-        imprimir_vertical(lineas_vertical[i], casillas[i]);
     }
-    std::cout << dimensiones << " ";
-    imprimir_horizontal(lineas_horizontal[dimensiones-1]);
 }
 
 void cambiar_jugador(char &c) {
@@ -85,7 +73,8 @@ void cambiar_jugador(char &c) {
 bool verificar_punto(int x, int y) {
     if (x < 0 || x > 6) {
         return false;
-    } else if (y < 1 || y > 6) {
+    }
+    if (y < 1 || y > 6) {
         return false;
     }
     return true;

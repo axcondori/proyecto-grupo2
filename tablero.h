@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <iomanip>
 
 typedef std::vector<std::vector<bool>> vec_tablero;
 typedef std::vector<std::vector<char>> vec_casillas;
