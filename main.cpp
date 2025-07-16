@@ -93,6 +93,7 @@ int main() {
         ++turnos;
     }
 
+    juego.imprimir_tablero();
     char ganador = juego.elegir_ganador();
 
     if (ganador == 'X') {
@@ -101,7 +102,6 @@ int main() {
     else {
         std::cout << "El ganador es el jugador " << ganador << ", felicidades!!\n";
     }
-    std::cout << "Han usado " << turnos << " turnos en total.\n";
 
     return 1;
 }
