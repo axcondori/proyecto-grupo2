@@ -8,14 +8,14 @@ int main() {
     }
 
     if (opcion == 0) {
-        std::cout << "Hasta luego! ^_^";
+        std::cout << "Hasta luego! Gracias por jugar ^_^\n";
         return 0;
     }
 
     int dimensiones = opcion == 1? 6:10;
 
     Tablero juego(dimensiones);
-    char jugador = ' ';
+    char jugador = 'A';
 
     int xi = 0;
     int yi = 0;
@@ -24,39 +24,78 @@ int main() {
 
     int dx = 0;
     int dy = 0;
-    bool mov_real = false;
-    bool punto_real = false;
+
+    bool mov_valido = false;
+    bool es_horizontal = false;
+    int turnos = 0;
 
     while (!juego.lleno()) {
         juego.imprimir_tablero();
-        cambiar_jugador(jugador);
         std::cout << "\n// Turno del jugador " << jugador << " //\n";
 
         do {
-            std::cout << "Ingrese origen (x y): ";
-            std::cin >> xi >> yi;
-            std::cout << "Ingrese destino (x y): ";
-            std::cin >> xf >> yf;
-
-            if (xf - xi == -1 || yf - yi == -1) {
-                intercambio(xi, xf);
-                intercambio(yi, yf);
+            mov_valido = true;
+            std::cout << "Ingrese origen (fil col): ";
+            if (!(std::cin >> yi >> xi)) {
+                std::cin.clear();
+                std::cin.ignore(10000, '\n');
+                std::cout << "Entrada invalida. Intente de nuevo.\n";
+                mov_valido = false;
+                continue;
             }
 
-            dx = xf - xi;
-            dy = yf - yi;
+            std::cout << "Ingrese destino (fil col): ";
+            if (!(std::cin >> yf >> xf)) {
+                std::cin.clear();
+                std::cin.ignore(10000, '\n');
+                std::cout << "Entrada invalida. Intente de nuevo.\n";
+                mov_valido = false;
+                continue;
+            }
 
-            mov_real = ((dx == 1 && dy == 0) || (dy == 1 && dx == 0));
-            punto_real = verificar_punto(xi, yi) && verificar_punto(xf, yf);
-        }
-        while (!(mov_real && punto_real));
+            if (yf < yi || xf < xi) {
+                intercambio(yi, yf);
+                intercambio(xi, xf);
+            }
 
-        // TODO: Dibujar las lineas (vertical / horizontal)
-        // TODO: Hacerlo con un método de juego (despues de verificación esa)
-        // TODO: Verificación de línea disponible
+            dx = yf - yi;
+            dy = xf - xi;
 
-        // TODO: vs. PC
+            es_horizontal = (dx == 0 && dy == 1);
+            bool es_vertical = (dx == 1 && dy == 0);
+
+            if (!(es_horizontal || es_vertical)) {
+                std::cout << "Error: Movimiento debe ser horizontal (---) o vertical (|)\n";
+                mov_valido = false;
+            }
+
+            if (mov_valido && !verificar_punto(yi, xi, dimensiones)) {
+                std::cout << "Error: Punto origen (" << yi << "," << xi << ") fuera de rango\n";
+                mov_valido = false;
+            }
+
+            if (mov_valido && !verificar_punto(yf, xf, dimensiones)) {
+                std::cout << "Error: Punto destino (" << yf << "," << xf << ") fuera de rango\n";
+                mov_valido = false;
+            }
+
+            if (mov_valido) {
+                bool disponible = juego.disponibilidad(yi, xi, es_horizontal);
+                if (!disponible) {
+                    std::cout << "Error: Linea ya ocupada\n";
+                    mov_valido = false;
+                }
+            }
+        } while (!mov_valido);
+
+        juego.dibujar_linea(yi, xi, es_horizontal, jugador);
+        cambiar_jugador(jugador);
+        ++turnos;
     }
+
+    // TODO: Imprimir ganador (A / B)
+    // TODO: Imprimir cantidad de turnos
+    // TODO: Pedir input de nombre de ganador
 
     return 1;
 }
