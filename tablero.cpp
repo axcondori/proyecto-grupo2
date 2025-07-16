@@ -127,6 +127,27 @@ int Tablero::dibujar_linea(int x, int y, bool horizontal, char jugador) {
     return completadas;
 }
 
+char Tablero::elegir_ganador() {
+    int conteo_A = 0;
+    int conteo_B = 0;
+
+    for (auto &item: casillas) {
+        for (auto &c: item) {
+            if (c == 'A') {
+                ++conteo_A;
+            }
+            else {
+                ++conteo_B;
+            }
+        }
+    }
+    if (conteo_A == conteo_B) {
+        return 'X';
+    }
+
+    return (conteo_A > conteo_B) ? 'A':'B';
+}
+
 void cambiar_jugador(char &c) {
     if (c == 'A') {
         c = 'B';

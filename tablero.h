@@ -32,6 +32,8 @@ public:
     bool disponibilidad(int x, int y, bool horizontal);
     bool comprobar_caja(int i, int j);
     int dibujar_linea(int x, int y, bool horizontal, char jugador);
+
+    char elegir_ganador();
 };
 
 // Creación de tablero

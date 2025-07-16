@@ -93,9 +93,15 @@ int main() {
         ++turnos;
     }
 
-    // TODO: Imprimir ganador (A / B)
-    // TODO: Imprimir cantidad de turnos
-    // TODO: Pedir input de nombre de ganador
+    char ganador = juego.elegir_ganador();
+
+    if (ganador == 'X') {
+        std::cout << "Hubo un empate! :O\n";
+    }
+    else {
+        std::cout << "El ganador es el jugador " << ganador << ", felicidades!!\n";
+    }
+    std::cout << "Han usado " << turnos << " turnos en total.\n";
 
     return 1;
 }
