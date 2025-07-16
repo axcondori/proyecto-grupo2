@@ -19,13 +19,13 @@ Para crear el tablero, hemos implementado la clase `Tablero`, la cual tiene los 
 
 ## Consideraciones del proyecto
 1. El juego cuenta con un menú y un tablero.
-2. El juego se realiza entre dos jugadores externos (opcionalmente entre un jugador vs la computadora).
-3. Tiene tiempos de respuesta
-4. Un valor entero con las dimensiones del tablero (6 o 10).  
+2. El juego se realiza entre dos jugadores externos (A / B).
+3. Un valor entero con las dimensiones del tablero (6 o 10).  
 
 **Compilador de C++:** `Versión C++ 17` o superior  
 
 ## Guía de instalación
+
 
 ## Instrucciones o reglas de uso
 
