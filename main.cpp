@@ -22,8 +22,8 @@ int main() {
     int xf = 0;
     int yf = 0;
 
-    int dx = 0;
     int dy = 0;
+    int dx = 0;
 
     bool mov_valido = false;
     bool es_horizontal = false;
@@ -58,11 +58,11 @@ int main() {
                 intercambio(xi, xf);
             }
 
-            dx = yf - yi;
-            dy = xf - xi;
+            dy = yf - yi;
+            dx = xf - xi;
 
-            es_horizontal = (dx == 0 && dy == 1);
-            bool es_vertical = (dx == 1 && dy == 0);
+            es_horizontal = (dy == 0 && dx == 1);
+            bool es_vertical = (dy == 1 && dx == 0);
 
             if (!(es_horizontal || es_vertical)) {
                 std::cout << "Error: Movimiento debe ser horizontal (---) o vertical (|)\n";
