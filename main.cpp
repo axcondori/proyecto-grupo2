@@ -91,9 +91,6 @@ int main() {
         juego.dibujar_linea(yi, xi, es_horizontal, jugador);
         cambiar_jugador(jugador);
         ++turnos;
-
-        std::cout << "\033[2J\033[1;1H";
-        std::cout.flush();
     }
 
     juego.imprimir_tablero();
