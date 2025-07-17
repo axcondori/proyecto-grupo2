@@ -61,4 +61,4 @@ Yadhira Mayza Lariena Vasquez
 Yelsie Sasha Pintado Perea
 
 ## Bibliografía
-1] Wikipedia, “Dots and boxes.” [https://en.wikipedia.org/wiki/Dots_and_Boxes], 2022.
+1] Wikipedia, “Dots and boxes.” https://en.wikipedia.org/wiki/Dots_and_Boxes, 2022.
