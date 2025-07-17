@@ -28,9 +28,11 @@ Para crear el tablero, hemos implementado la clase `Tablero`, la cual tiene los 
 1. Si tienes MinGW ([preferible](https://www.youtube.com/watch?v=GxFiUEO_3zM)):
     1. Descargar el proyecto como un .ZIP
     2. Extraer el .ZIP en un folder de su preferencia.
-    3. Ejecutar `timbiriche.exe` (permitir que la aplicación se ejecute).
+    3. Ejecutar `timbiriche.exe` (permitir que la aplicación se ejecute).  
+       
 2. Si no tienes MinGW:
-    1. a
+    1. Importar el proyecto en un entorno como CLion.
+    2. Ejecutar `main.cpp`.
 
 ## Instrucciones o reglas de uso
 
