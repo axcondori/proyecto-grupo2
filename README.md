@@ -15,12 +15,12 @@ Para crear el tablero, hemos implementado la clase `Tablero`, la cual tiene los 
 
 **Compilador de C++:** `Versión C++ 17` o superior  
 **Administrador de código fuente:** `CMake versión 3.10` o superior  
-**Sistema Operativo:** `MS Windows, OS Mac o Linux`
+**Sistema Operativo:** `MS Windows (7 a más), OS Mac o Linux`
 
 ## Consideraciones del proyecto
 1. El juego cuenta con un menú y un tablero.
 2. El juego se realiza entre dos jugadores externos (A / B).
-3. Un valor entero con las dimensiones del tablero (6 o 10).  
+3. Dos tamaños de tablero (6 x 6) y (10 x 10).
 
 **Compilador de C++:** `Versión C++ 17` o superior  
 
@@ -37,6 +37,7 @@ El usuario es presentado con las siguientes 3 opciones:
 3. Salir del juego
 
 Tras escoger una de las primeras dos opciones, el tablero es impreso en la consola al inicio de cada turno, y es llenado según el input del jugador (A o B).
+Al llenarse todas las casillas, el juego imprime el ganador.
 
 ## Diagrama de clases
 
