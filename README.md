@@ -25,7 +25,9 @@ Para crear el tablero, hemos implementado la clase `Tablero`, la cual tiene los 
 **Compilador de C++:** `Versión C++ 17` o superior  
 
 ## Guía de instalación
-
+1. Descargar el proyecto como un .ZIP
+2. Extraer el .ZIP en un folder de su preferencia.
+3. Ejecutar `timbiriche.exe` (permitir que la aplicación se ejecute).
 
 ## Instrucciones o reglas de uso
 
