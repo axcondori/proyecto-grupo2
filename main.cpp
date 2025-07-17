@@ -88,8 +88,9 @@ int main() {
             }
         } while (!mov_valido);
 
-        juego.dibujar_linea(yi, xi, es_horizontal, jugador);
-        cambiar_jugador(jugador);
+        if (juego.dibujar_linea(yi, xi, es_horizontal, jugador) == 0) {
+            cambiar_jugador(jugador);
+        }
         ++turnos;
     }
 
