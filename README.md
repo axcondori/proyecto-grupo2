@@ -48,7 +48,6 @@ Al llenarse todas las casillas, el juego imprime el ganador.
 <img width="640" height="720" alt="Diagrama en blanco (4)" src="https://github.com/user-attachments/assets/0f642652-4b6a-4f3e-9e46-77228e57b7d1" />
 
 ## Link a video de presentación
-https://www.youtube.com/watch?v=26wFOPISnYw 
 
 ## Autores
 
